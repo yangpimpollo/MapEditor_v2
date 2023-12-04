@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\prime">
+      <UniqueIdentifier>{35c36287-01f0-4818-adb8-a4a3826f3d3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\prime">
+      <UniqueIdentifier>{e7428eb3-3d40-4875-879e-dcb7e8d3cb30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\config">
+      <UniqueIdentifier>{398499a8-b5c7-41a4-9825-0e4ffb63cb1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\pieces">
+      <UniqueIdentifier>{b63e20c1-6a23-45bb-8545-e60e5ea9e350}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\pieces">
+      <UniqueIdentifier>{6513bb0d-4803-4ba4-8e20-e405bd18a69c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\pieces\workgui">
+      <UniqueIdentifier>{867531c7-23f4-4c29-8bbe-f4751ab8a4ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\pieces\workmap">
+      <UniqueIdentifier>{e59b9374-9e19-42ca-83b1-bc31daaedcc9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\pieces\workgui">
+      <UniqueIdentifier>{1e39d185-bb0c-4266-b08e-f4937707dd60}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\pieces\workmap">
+      <UniqueIdentifier>{63c3afea-e30f-4bd6-bc5d-e132eaf586a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\guikit">
+      <UniqueIdentifier>{f99c20df-f07f-4bf3-b905-4f9c6c5e02a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\guikit">
+      <UniqueIdentifier>{b0441c96-41af-4a51-9868-d66512b78725}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\phykit">
+      <UniqueIdentifier>{826b1eb1-5198-48ea-8780-6e8544c27d5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\phykit">
+      <UniqueIdentifier>{91d3b75f-f7b4-4862-973f-b399f19d6444}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\game_core.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\prime\ResourceManager.cpp">
+      <Filter>Source Files\prime</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\pieces\workmap\WorkMap.cpp">
+      <Filter>Source Files\pieces\workmap</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\prime\Window.cpp">
+      <Filter>Source Files\prime</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\prime\Tester1.cpp">
+      <Filter>Source Files\prime</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\prime\SceneManager.cpp">
+      <Filter>Source Files\prime</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\prime\WorkGui.cpp">
+      <Filter>Source Files\prime</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\guikit\ARoundRect.cpp">
+      <Filter>Source Files\guikit</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\guikit\AButton.cpp">
+      <Filter>Source Files\guikit</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\guikit\AFrame.cpp">
+      <Filter>Source Files\guikit</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\guikit\AList.cpp">
+      <Filter>Source Files\guikit</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\prime\Tester2.cpp">
+      <Filter>Source Files\prime</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\phykit\ASpriteShape.cpp">
+      <Filter>Source Files\phykit</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\phykit\AEditTool.cpp">
+      <Filter>Source Files\phykit</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Header\game_core.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\prime\ResourceManager.h">
+      <Filter>Header Files\prime</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\pieces\workmap\WorkMap.h">
+      <Filter>Header Files\pieces\workmap</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\prime\Window.h">
+      <Filter>Header Files\prime</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\prime\Tester1.h">
+      <Filter>Header Files\prime</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\prime\SceneManager.h">
+      <Filter>Header Files\prime</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\prime\Scene.h">
+      <Filter>Header Files\prime</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\prime\WorkGui.h">
+      <Filter>Header Files\prime</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\guikit\ARoundRect.h">
+      <Filter>Header Files\guikit</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\guikit\AGuiObject.h">
+      <Filter>Header Files\guikit</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\guikit\AListener.h">
+      <Filter>Header Files\guikit</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\guikit\AButton.h">
+      <Filter>Header Files\guikit</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\guikit\AFrame.h">
+      <Filter>Header Files\guikit</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\guikit\ARect.h">
+      <Filter>Header Files\guikit</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\guikit\AButtonBase.h">
+      <Filter>Header Files\guikit</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\guikit\AList.h">
+      <Filter>Header Files\guikit</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\prime\Tester2.h">
+      <Filter>Header Files\prime</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\phykit\APhyObject.h">
+      <Filter>Header Files\phykit</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\phykit\ASpriteShape.h">
+      <Filter>Header Files\phykit</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\phykit\AEditTool.h">
+      <Filter>Header Files\phykit</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="config\scene1_res.wo">
+      <Filter>Resource Files\config</Filter>
+    </None>
+    <None Include="config\global_res.wo">
+      <Filter>Resource Files\config</Filter>
+    </None>
+  </ItemGroup>
+</Project>

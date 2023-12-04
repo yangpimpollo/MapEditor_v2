@@ -1,0 +1,14 @@
+
+<Scene type='header' ----------------------------------------- by amber --- />
+<Scene type='header' name='scene1 resources' />
+<Scene type='header' ------------------------------------------------------ />
+
+// este es un comentario
+
+<res type='texture' id='pixel1' dat='pixel1.jpg' />
+<res type='texture' id='pixel2' dat='pixel2.jpeg' />
+<res type='texture' id='pixel3' dat='pixel3.jpg' />
+<res type='texture' id='pixel4' dat='pixel4.jpg' />
+<res type='texture' id='pixel5' dat='pixel5.jpg' />
+
+// res type='sound' id='momm' dat='momm.wavb' />
