@@ -15,15 +15,19 @@ wl::ASpriteShape::ASpriteShape(sf::Vector2f position, sf::Vector2f size, sf::Tex
 	rectShape.setSize(size);
 	rectShape.setTexture(tex);
 
-	edit = wl::AEditTool(this);
+	edit = wl::AEditTool(*this);
+	//edit.setRect(this);
 }
 
 void wl::ASpriteShape::update(sf::Time deltaTime)
 {
+	edit.update(deltaTime);
 }
 
 void wl::ASpriteShape::processEvents(sf::Event event)
 {
+	edit.processEvents(event);
+
 	if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
 		if (contains()) {
 			mouseOffset = win->getCursorPos() - position;

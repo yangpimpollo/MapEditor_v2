@@ -20,7 +20,6 @@ namespace wl
 		void setPosition(sf::Vector2f arg);
 
 	private:
-		//bool editMode = false;
 		bool isDragging = false;
 		bool isSelected = false;
 		sf::Vector2f mouseOffset;

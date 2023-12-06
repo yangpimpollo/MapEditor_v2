@@ -18,6 +18,7 @@ namespace wl
 		void processEvents(sf::Event event);
 
 		sf::Vector2f getCursorPos();
+		void setSizeCursor(int arg);
 		//sf::Vector2f getCursorMapPos();
 
 	private:
@@ -25,7 +26,8 @@ namespace wl
 		~Window();
 
 		static wl::Window* instance_;
-		sf::Cursor cursor; sf::Cursor cursor1;
+		sf::Cursor cursor; 
+		sf::Cursor s_cursor1, s_cursor2, s_cursor3, s_cursor4;
 
 	};
 

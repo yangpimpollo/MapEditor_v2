@@ -12,7 +12,7 @@ namespace wl
 	public:
 		AEditTool();
 		~AEditTool();
-		AEditTool(ARect* rect);
+		AEditTool(ARect rect);
 
 		void update(sf::Time deltaTime);
 		void processEvents(sf::Event event);
@@ -20,10 +20,12 @@ namespace wl
 
 		void setPosition(sf::Vector2f arg);
 		void setEnabled(bool arg) { this->activeEdit = arg; };
-		void setToggle() { this->activeEdit = !activeEdit; };
+		void setToggle() { this->activeEdit = !activeEdit; }; 
+
+		//inline void setRect(ARect* rect) { this->_rect = rect; };
 
 	private:
-		ARect* _rect;
+		ARect _rect;
 		bool activeEdit;
 		sf::Vector2f mouseOffset;
 

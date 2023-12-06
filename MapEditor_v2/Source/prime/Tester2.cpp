@@ -57,6 +57,7 @@ void wl::Tester2::update(sf::Time deltaTime)
 	this->mouse_Y.setString("screen y: " + y);
 
 	//------------------------------------------------------------------//
+	sp1.update(deltaTime);
 }
 
 void wl::Tester2::processEvents(sf::Event event)
