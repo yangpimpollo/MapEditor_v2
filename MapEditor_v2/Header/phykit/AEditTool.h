@@ -18,10 +18,6 @@ namespace wl
 		void processEvents(sf::Event event);
 		void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 
-		void preedit(sf::Event event);
-		void edition(sf::Event event);
-
-		//void setPosition(sf::Vector2f arg);
 		void setEnabled(bool arg) { this->activeEdit = arg; };
 		void setToggle() { this->activeEdit = !activeEdit; }; 
 
@@ -36,7 +32,7 @@ namespace wl
 		sf::RectangleShape edgeShape;
 		sf::Vertex lineL[2], lineR[2];
 
-		sf::Color color = sf::Color::Cyan;
+		sf::Color color = sf::Color::Magenta;
 	};
 
 
