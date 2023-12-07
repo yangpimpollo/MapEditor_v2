@@ -8,44 +8,109 @@ wl::AEditTool::~AEditTool()
 {
 }
 
-wl::AEditTool::AEditTool(ARect rect)
-	: _rect(rect)
+wl::AEditTool::AEditTool(sf::Vector2f position, sf::Vector2f size)
+	: wl::ARect(position, size)
 {
-	rectShape.setPosition(_rect.getPosition());
-	rectShape.setSize(_rect.getSize());
-	rectShape.setFillColor(sf::Color::Transparent);
-	rectShape.setOutlineThickness(1.5f);
-	rectShape.setOutlineColor(sf::Color::Green);
+	edgeShape.setPosition(position);
+	edgeShape.setSize(size);
+	edgeShape.setFillColor(sf::Color::Transparent);
+	edgeShape.setOutlineThickness(1.5f);
+	edgeShape.setOutlineColor(color);
+
+	
 }
 
 void wl::AEditTool::update(sf::Time deltaTime)
 {
+	edgeShape.setSize(size);
+	edgeShape.setPosition(position);
+	
+	lineL[0] = sf::Vertex(getCenter() - sf::Vector2f(5.f, 5.f), color);
+	lineL[1] = sf::Vertex(getCenter() + sf::Vector2f(5.f, 5.f), color);
+	lineR[0] = sf::Vertex(getCenter() - sf::Vector2f(5.f, -5.f), color);
+	lineR[1] = sf::Vertex(getCenter() + sf::Vector2f(5.f, -5.f), color);
 }
 
 void wl::AEditTool::processEvents(sf::Event event)
 {
-	if (activeEdit) {
-		//std::cout << "c1" << _rect.getPosition().x << std::endl;
-		//std::cout << "c2" << _rect.getSize().x << std::endl;
-		//if(_rect->contains()) std::cout << "c1" << std::endl;
-		switch (_rect.getQuadrant()){
-		case 24: case 42: win->setSizeCursor(1); break;
-		case 32: case 34: win->setSizeCursor(2); break;
-		case 22: case 44: win->setSizeCursor(3); break;
-		case 23: case 43: win->setSizeCursor(4); break;
-		default: win->setSizeCursor(0); 
-			std::cout << "def0" << std::endl; break;
-		}
-	}
+	preedit(event);
+	if (activeEdit) edition(event);
 }
 
 void wl::AEditTool::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
-	if(activeEdit) target.draw(rectShape);
+	if (activeEdit) target.draw(edgeShape);
+
+	if (isSelected) {
+		target.draw(lineL, 2, sf::Lines);
+		target.draw(lineR, 2, sf::Lines);
+	}
 }
 
-void wl::AEditTool::setPosition(sf::Vector2f arg)
+void wl::AEditTool::preedit(sf::Event event)
 {
-	_rect.setPosition(arg);
-	rectShape.setPosition(arg);
+	if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
+		if (contains() && !inCorner()) {
+			mouseOffset = win->getCursorPos() - position;
+			isDragging = true;
+		}
+	}
+	else if (event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left) {
+		//std::cout << "click" << std::endl;
+		mouseOffset = sf::Vector2f(0.f, 0.f);
+		isDragging = false;
+		isSelected = (contains()) ? true : false;
+	}
+	else if (event.type == sf::Event::MouseMoved && isDragging) {
+		position = win->getCursorPos() - mouseOffset;
+		setPosition(position);
+	}
+
+	if (isSelected) {
+		if (event.type == sf::Event::KeyReleased && event.key.code == sf::Keyboard::Key::E)
+			setToggle();
+	}
+	else {
+		setEnabled(false);
+	}
 }
+
+void wl::AEditTool::edition(sf::Event event)
+{
+	//if (inCorner()) {
+		//win->setSizeCursor(3);
+		if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
+			if (inCorner()) {
+				isScale = true;
+				mouseOffset = win->getCursorPos();
+				sizeOffset = size;
+			}
+			
+		}
+		else if (event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left) {
+			mouseOffset = sf::Vector2f(0.f, 0.f);
+			isScale = false;
+		}
+		else if (event.type == sf::Event::MouseMoved && isScale) {
+			sf::Vector2f delta = win->getCursorPos() - mouseOffset;
+			//std::cout << "click" << std::endl;
+			if ((sizeOffset + delta).x > 10.f && (sizeOffset + delta).y > 10.f) {
+				size = sizeOffset + delta;
+			}
+			setSize(size);
+		}
+
+	//}else {
+		//win->setSizeCursor(0);
+	//}
+}
+
+//void wl::AEditTool::setPosition(sf::Vector2f arg)
+//{
+//	//edgeShape.setPosition(arg);
+//	//lineL[0] = sf::Vertex(getCenter() - sf::Vector2f(5.f, 5.f), color);
+//	//lineL[1] = sf::Vertex(getCenter() + sf::Vector2f(5.f, 5.f), color);
+//	//lineR[0] = sf::Vertex(getCenter() - sf::Vector2f(5.f, -5.f), color);
+//	//lineR[1] = sf::Vertex(getCenter() + sf::Vector2f(5.f, -5.f), color);
+//
+//}

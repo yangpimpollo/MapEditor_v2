@@ -17,9 +17,11 @@ namespace wl
 		inline void setSize(sf::Vector2f arg) { this->size = arg; };
 		inline sf::Vector2f getPosition() { return this->position; };
 		inline sf::Vector2f getSize() { return this->size; };
+		inline sf::Vector2f getCenter() { return position + size / 2.f; }
 
 		inline bool contains();
 		inline int getQuadrant();
+		inline bool inCorner();
 
 	protected:
 		sf::Vector2f position, size;
@@ -65,6 +67,19 @@ namespace wl
 		else if (mouse_pos.y > position.y + size.y) { _i = 5; }
 
 		return _i * 10 + _j;
+	}
+
+	inline bool ARect::inCorner()
+	{
+		sf::Vector2i imouse_pos = sf::Mouse::getPosition(*win);
+		sf::Vector2f mouse_pos = sf::Vector2f(static_cast<float>(imouse_pos.x), static_cast<float>(imouse_pos.y));
+
+		sf::Vector2f cornerPos = (position + size) - sf::Vector2f(3.f, 3.f);
+
+		if (mouse_pos.x > cornerPos.x && mouse_pos.x < cornerPos.x + 6.f) {
+			if (mouse_pos.y > cornerPos.y && mouse_pos.y < cornerPos.y + 6.f) return true;
+		}
+		return false;
 	}
 
 } // namespace wl
