@@ -173,6 +173,7 @@
     <ClInclude Include="Header\phykit\APhyObject.h" />
     <ClInclude Include="Header\phykit\ASpriteShape.h" />
     <ClInclude Include="Header\pieces\workmap\WorkMap.h" />
+    <ClInclude Include="Header\prime\math.h" />
     <ClInclude Include="Header\prime\ResourceManager.h" />
     <ClInclude Include="Header\prime\Scene.h" />
     <ClInclude Include="Header\prime\SceneManager.h" />

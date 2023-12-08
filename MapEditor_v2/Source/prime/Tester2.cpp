@@ -62,6 +62,12 @@ void wl::Tester2::update(sf::Time deltaTime)
 
 void wl::Tester2::processEvents(sf::Event event)
 {
+	if (event.type == sf::Event::Resized)
+	{
+		viewTest.setSize(event.size.width, event.size.height);
+		viewTest.setCenter(event.size.width / 2, event.size.height / 2);
+	}
+
 	sp1.processEvents(event);
 }
 

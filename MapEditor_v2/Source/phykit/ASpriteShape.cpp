@@ -11,6 +11,7 @@ wl::ASpriteShape::~ASpriteShape()
 wl::ASpriteShape::ASpriteShape(sf::Vector2f position, sf::Vector2f size, sf::Texture* tex)
 	: wl::AEditTool(position, size), tex(*tex)
 {
+	generateID();
 	rectShape.setPosition(position);
 	rectShape.setSize(size);
 	rectShape.setTexture(tex);
@@ -35,8 +36,3 @@ void wl::ASpriteShape::draw(sf::RenderTarget& target, sf::RenderStates states) c
 	wl::AEditTool::draw(target, states);
 
 }
-
-//void wl::ASpriteShape::setPosition(sf::Vector2f arg)
-//{
-//	//rectShape.setPosition(position);
-//}

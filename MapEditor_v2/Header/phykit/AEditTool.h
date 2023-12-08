@@ -33,6 +33,8 @@ namespace wl
 		sf::Vertex lineL[2], lineR[2];
 
 		sf::Color color = sf::Color::Magenta;
+
+		sf::Text id_tx, w_tx, h_tx, x_tx, y_tx, z_tx;
 	};
 
 

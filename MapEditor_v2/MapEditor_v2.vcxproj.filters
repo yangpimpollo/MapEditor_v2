@@ -161,6 +161,9 @@
     <ClInclude Include="Header\phykit\AEditTool.h">
       <Filter>Header Files\phykit</Filter>
     </ClInclude>
+    <ClInclude Include="Header\prime\math.h">
+      <Filter>Header Files\prime</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="config\scene1_res.wo">
