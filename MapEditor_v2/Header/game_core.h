@@ -9,6 +9,7 @@
 #include "prime/SceneManager.h"
 #include "prime/Tester1.h"
 #include "prime/Tester2.h"
+#include "prime/Tester3.h"
 #include "prime/Window.h"
 
 

@@ -156,6 +156,7 @@
     <ClCompile Include="Source\prime\SceneManager.cpp" />
     <ClCompile Include="Source\prime\Tester1.cpp" />
     <ClCompile Include="Source\prime\Tester2.cpp" />
+    <ClCompile Include="Source\prime\Tester3.cpp" />
     <ClCompile Include="Source\prime\Window.cpp" />
     <ClCompile Include="Source\prime\WorkGui.cpp" />
   </ItemGroup>
@@ -179,6 +180,7 @@
     <ClInclude Include="Header\prime\SceneManager.h" />
     <ClInclude Include="Header\prime\Tester1.h" />
     <ClInclude Include="Header\prime\Tester2.h" />
+    <ClInclude Include="Header\prime\Tester3.h" />
     <ClInclude Include="Header\prime\Window.h" />
     <ClInclude Include="Header\prime\WorkGui.h" />
   </ItemGroup>

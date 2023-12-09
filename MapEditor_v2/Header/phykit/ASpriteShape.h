@@ -17,7 +17,6 @@ namespace wl
 		void processEvents(sf::Event event);
 		void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 
-		//void setPosition(sf::Vector2f arg);
 
 	private:
 

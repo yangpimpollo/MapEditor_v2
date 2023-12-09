@@ -1,13 +1,13 @@
-﻿
-<Scene type='header' ----------------------------------------- by amber --- />
+﻿<root>
+<Scene type='header' />
 <Scene type='header' name='global resources' />
-<Scene type='header' ------------------------------------------------------ />
+<Scene type='header'/>
 
 <res type='font' id='CascadiaMono300' dat='Cascadia Mono PL Light 300.otf' />
 <res type='font' id='cwTeXQFangsong' dat='cwTeXQFangsong-Medium.ttf' />
 <res type='font' id='SourceHanSerifTC' dat='SourceHanSerifTC-ExtraLight.otf' />
 
-// este es un comentario
+<!--// este es un comentario-->
 
 <res type='texture' id='icon' dat='icon.png' />
 <res type='texture' id='icon_b' dat='icon_b.png' />
@@ -21,3 +21,5 @@
 <res type='string' id='title' EN='Dragon_Knight' ZH='龍騎士' SP='Caballero_Dragón' />
 <res type='string' id='continue' EN='continue' ZH='繼續' SP='continuar' />
 <res type='string' id='new game' EN='new game' ZH='新游戲 2 bio' SP='nueva partida' />
+
+</root>

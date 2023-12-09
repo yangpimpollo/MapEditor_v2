@@ -11,11 +11,17 @@ wl::AEditTool::~AEditTool()
 wl::AEditTool::AEditTool(sf::Vector2f position, sf::Vector2f size)
 	: wl::ARect(position, size)
 {
-	edgeShape.setPosition(position);
-	edgeShape.setSize(size);
 	edgeShape.setFillColor(sf::Color(255,0,255, 50));
-	edgeShape.setOutlineThickness(1.5f);
+	edgeShape.setOutlineThickness(1.f);
 	edgeShape.setOutlineColor(color);
+
+	zShape.setSize(sf::Vector2f(5.f, 4.f));
+	zShape.setFillColor(color);
+	zShape.setOutlineThickness(1.f);
+	zShape.setOutlineColor(color);
+
+	zLine.setSize(sf::Vector2f(1.f, z_module));
+	zLine.setFillColor(color);
 
 	//--------------------------
 	id_tx.setFont(res->getFont("global_res", "CascadiaMono300"));
@@ -45,6 +51,10 @@ void wl::AEditTool::update(sf::Time deltaTime)
 	edgeShape.setSize(size);
 	edgeShape.setPosition(position); 
 
+	zShape.setPosition(position.x - 3.f, position.y + z_module);
+	zLine.setPosition(sf::Vector2f(position.x - 1.f, position.y));
+	zLine.setSize(sf::Vector2f(1.f, z_module));
+
 	//--------------------------
 	id_tx.setPosition(position.x, position.y - 15.f); 
 	id_tx.setString(getID());
@@ -57,37 +67,46 @@ void wl::AEditTool::update(sf::Time deltaTime)
 	y_tx.setPosition(position.x + size.x + 5.f, position.y + 45.f);
 	y_tx.setString("y:" + std::to_string((int)position.y));
 	z_tx.setPosition(position.x + size.x + 5.f, position.y + 60.f);
-	z_tx.setString("z:");
+	z_tx.setString("z:" + std::to_string((int)getZbuffer()));
 	//--------------------------
 	
 	lineL[0] = sf::Vertex(getCenter() - sf::Vector2f(5.f, 5.f), color);
 	lineL[1] = sf::Vertex(getCenter() + sf::Vector2f(5.f, 5.f), color);
 	lineR[0] = sf::Vertex(getCenter() - sf::Vector2f(5.f, -5.f), color);
 	lineR[1] = sf::Vertex(getCenter() + sf::Vector2f(5.f, -5.f), color);
+
+	//--------------------------
 }
 
 void wl::AEditTool::processEvents(sf::Event event)
 {
 	if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
-		if (inCorner() && activeEdit) {
+		if (inZQuadrant()) {
+			isDragZQuad = true;
+			mouseOffset = win->getCursorPos();
+			z_moduleOffset0 = z_module;
+		}else if (inCorner() && activeEdit) {
 			isScale = true;
 			mouseOffset = win->getCursorPos();
 			sizeOffset = size;
 		}else if (contains()) {
-			mouseOffset = win->getCursorPos() - position;
 			isDragging = true;
+			mouseOffset = win->getCursorPos() - position;			
 		}
 	}else if (event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left) {
 		//std::cout << "click" << std::endl;
-		isSelected = (contains()) ? true : false;
+		isSelected = (contains() || inZQuadrant()) ? true : false;
 		mouseOffset = sf::Vector2f(0.f, 0.f);
 		isDragging = false;
-		mouseOffset = sf::Vector2f(0.f, 0.f);
 		isScale = false;
+		isDragZQuad = false;
 
 	}else if (event.type == sf::Event::MouseMoved) {
 
-		if (isScale) {
+		if (isDragZQuad) {
+			float delta = win->getCursorPos().y - mouseOffset.y;
+			z_module = z_moduleOffset0 + delta;
+		}else if (isScale) {
 			sf::Vector2f delta = win->getCursorPos() - mouseOffset;
 			if ((sizeOffset + delta).x > 10.f && (sizeOffset + delta).y > 10.f) {
 				size = sizeOffset + delta;
@@ -100,6 +119,7 @@ void wl::AEditTool::processEvents(sf::Event event)
 
 	}
 
+	//--------------------------
 	if (isSelected) {
 		if (event.type == sf::Event::KeyReleased && event.key.code == sf::Keyboard::Key::E)
 			setToggle();
@@ -114,18 +134,26 @@ void wl::AEditTool::processEvents(sf::Event event)
 	}else {
 		win->setSizeCursor(0);
 	}
+
+	if (inZQuadrant() && activeEdit) {
+		zShape.setFillColor(sf::Color::Transparent);
+	}else {
+		zShape.setFillColor(color);
+	}
 }
 
 void wl::AEditTool::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
 	if (activeEdit) { 
 		target.draw(edgeShape); 
+		target.draw(zShape);
 		target.draw(id_tx);
 		target.draw(w_tx);
 		target.draw(h_tx);
 		target.draw(x_tx);
 		target.draw(y_tx);
 		target.draw(z_tx);
+		target.draw(zLine);
 	}
 
 	if (isSelected) {

@@ -25,11 +25,13 @@ namespace wl
 		bool activeEdit = false;
 		bool isDragging = false;
 		bool isScale = false;
+		bool isDragZQuad = false;
 		bool isSelected = false;
+		float z_moduleOffset0;
 		sf::Vector2f mouseOffset;
 		sf::Vector2f sizeOffset;
 
-		sf::RectangleShape edgeShape;
+		sf::RectangleShape edgeShape, zShape, zLine;
 		sf::Vertex lineL[2], lineR[2];
 
 		sf::Color color = sf::Color::Magenta;

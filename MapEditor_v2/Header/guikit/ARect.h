@@ -15,16 +15,22 @@ namespace wl
 
 		inline void setPosition(sf::Vector2f arg) { this->position = arg; };
 		inline void setSize(sf::Vector2f arg) { this->size = arg; };
+		inline void setZbuffer(float arg) { this->z_module = arg - position.y; };
 		inline sf::Vector2f getPosition() { return this->position; };
 		inline sf::Vector2f getSize() { return this->size; };
+		inline float getZbuffer() { return position.y + z_module; }
+
 		inline sf::Vector2f getCenter() { return position + size / 2.f; }
+		
 
 		inline bool contains();
 		inline int getQuadrant();
 		inline bool inCorner();
+		inline bool inZQuadrant();     // specific function added
 
 	protected:
 		sf::Vector2f position, size;
+		float z_module;                // distance z to origin
 
 	};
 
@@ -35,6 +41,7 @@ namespace wl
 	inline ARect::ARect(sf::Vector2f position, sf::Vector2f size)
 		: position(position), size(size)
 	{
+		z_module = size.y - 4.f;
 	}
 
 	inline ARect::~ARect()
@@ -78,6 +85,20 @@ namespace wl
 
 		if (mouse_pos.x > cornerPos.x && mouse_pos.x < cornerPos.x + 6.f) {
 			if (mouse_pos.y > cornerPos.y && mouse_pos.y < cornerPos.y + 6.f) return true;
+		}
+		return false;
+	}
+
+	inline bool ARect::inZQuadrant()
+	{
+		sf::Vector2i imouse_pos = sf::Mouse::getPosition(*win);
+		sf::Vector2f mouse_pos = sf::Vector2f(static_cast<float>(imouse_pos.x), static_cast<float>(imouse_pos.y));
+
+		//sf::Vector2f ZQuadPos = sf::Vector2f(position.x - 6.f, position.y + size.y - 6.f);
+		sf::Vector2f ZQuadPos = sf::Vector2f(position.x - 3.f, position.y + z_module);
+
+		if (mouse_pos.x > ZQuadPos.x && mouse_pos.x < ZQuadPos.x + 5.f) {
+			if (mouse_pos.y > ZQuadPos.y && mouse_pos.y < ZQuadPos.y + 4.f) return true;
 		}
 		return false;
 	}

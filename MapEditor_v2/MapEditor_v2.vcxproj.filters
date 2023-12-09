@@ -99,6 +99,9 @@
     <ClCompile Include="Source\phykit\AEditTool.cpp">
       <Filter>Source Files\phykit</Filter>
     </ClCompile>
+    <ClCompile Include="Source\prime\Tester3.cpp">
+      <Filter>Source Files\prime</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header\game_core.h">
@@ -162,6 +165,9 @@
       <Filter>Header Files\phykit</Filter>
     </ClInclude>
     <ClInclude Include="Header\prime\math.h">
+      <Filter>Header Files\prime</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\prime\Tester3.h">
       <Filter>Header Files\prime</Filter>
     </ClInclude>
   </ItemGroup>
