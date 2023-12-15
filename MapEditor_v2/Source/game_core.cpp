@@ -29,8 +29,8 @@ void wl::game_core::start()
 
 void wl::game_core::init()
 {
-	wl::ResourceManager::getInstance()->loadResources("global_res");
-    res->loadResources("scene1_res");
+	wl::ResourceManager::getInstance()->loadRoom("global");
+    res->loadRoom("scene1");
 }
 
 void wl::game_core::cicles()
@@ -78,26 +78,26 @@ void wl::game_core::processEvents()
     {
         wl::Window::getInstance()->processEvents(event);
         wl::SceneManager::getInstance()->processEvents(event);
-        //wl::Tester1::getInstance()->processEvents(event);  
-        wl::Tester2::getInstance()->processEvents(event);
-        wl::Tester3::getInstance()->processEvents(event);
+        wl::Tester1::getInstance()->processEvents(event);  
+        //wl::Tester2::getInstance()->processEvents(event);
+        //wl::Tester3::getInstance()->processEvents(event);
     }
 }
 
 void wl::game_core::update(sf::Time deltaTime)
 {
     wl::SceneManager::getInstance()->update(deltaTime);
-    //wl::Tester1::getInstance()->update(deltaTime);
-    wl::Tester2::getInstance()->update(deltaTime);
-    wl::Tester3::getInstance()->update(deltaTime);
+    wl::Tester1::getInstance()->update(deltaTime);
+    //wl::Tester2::getInstance()->update(deltaTime);
+    //wl::Tester3::getInstance()->update(deltaTime);
 }
 
 void wl::game_core::render()
 {
 	wl::Window::getInstance()->clear(sf::Color(22, 22, 22));
     wl::Window::getInstance()->draw(*wl::SceneManager::getInstance());
-    //wl::Window::getInstance()->draw(*wl::Tester1::getInstance());
-    wl::Window::getInstance()->draw(*wl::Tester2::getInstance());
-    wl::Window::getInstance()->draw(*wl::Tester3::getInstance());
+    wl::Window::getInstance()->draw(*wl::Tester1::getInstance());
+    //wl::Window::getInstance()->draw(*wl::Tester2::getInstance());
+    //wl::Window::getInstance()->draw(*wl::Tester3::getInstance());
     wl::Window::getInstance()->display();
 }

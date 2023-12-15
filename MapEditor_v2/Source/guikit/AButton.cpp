@@ -11,7 +11,7 @@ wl::AButton::~AButton()
 wl::AButton::AButton(sf::Vector2f position, sf::Vector2f size, sf::String arg, float radius)
 	: AButtonBase(position, size)
 {
-	text.setFont(res->getFont("global_res", "CascadiaMono300"));
+	text.setFont(res->getFont("global", "CascadiaMono300"));
 	text.setString(arg);
 	text.setCharacterSize(12);
 	text.setFillColor(color4);

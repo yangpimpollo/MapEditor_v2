@@ -46,11 +46,11 @@ wl::Window::Window()
 	std::string TITLE = "wild_mapEditor";
 
 	sf::ContextSettings settings; settings.antialiasingLevel = 8;
-	sf::Image cursorImg = res->getTexture("global_res", "cursor").copyToImage();
+	sf::Image cursorImg = res->getTexture("global", "cursor").copyToImage();
 	cursor.loadFromPixels(cursorImg.getPixelsPtr(), sf::Vector2u(20, 20), sf::Vector2u(0, 0));
 
 	this->create(sf::VideoMode(WIDTH, HEIGHT), TITLE, sf::Style::Default, settings);
-	this->setIcon(64, 64, sf::Image(res->getTexture("global_res", "icon").copyToImage()).getPixelsPtr());
+	this->setIcon(64, 64, sf::Image(res->getTexture("global", "icon").copyToImage()).getPixelsPtr());
 	this->setMouseCursor(cursor);
 
 	//--------------------------------------

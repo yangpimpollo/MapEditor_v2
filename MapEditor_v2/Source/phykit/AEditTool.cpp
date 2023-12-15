@@ -24,22 +24,22 @@ wl::AEditTool::AEditTool(sf::Vector2f position, sf::Vector2f size)
 	zLine.setFillColor(color);
 
 	//--------------------------
-	id_tx.setFont(res->getFont("global_res", "CascadiaMono300"));
+	id_tx.setFont(res->getFont("global", "CascadiaMono300"));
 	id_tx.setCharacterSize(10);
 	id_tx.setFillColor(color);
-	w_tx.setFont(res->getFont("global_res", "CascadiaMono300"));
+	w_tx.setFont(res->getFont("global", "CascadiaMono300"));
 	w_tx.setCharacterSize(10);
 	w_tx.setFillColor(color);
-	h_tx.setFont(res->getFont("global_res", "CascadiaMono300"));
+	h_tx.setFont(res->getFont("global", "CascadiaMono300"));
 	h_tx.setCharacterSize(10);
 	h_tx.setFillColor(color);
-	x_tx.setFont(res->getFont("global_res", "CascadiaMono300"));
+	x_tx.setFont(res->getFont("global", "CascadiaMono300"));
 	x_tx.setCharacterSize(10);
 	x_tx.setFillColor(color);
-	y_tx.setFont(res->getFont("global_res", "CascadiaMono300"));
+	y_tx.setFont(res->getFont("global", "CascadiaMono300"));
 	y_tx.setCharacterSize(10);
 	y_tx.setFillColor(color);
-	z_tx.setFont(res->getFont("global_res", "CascadiaMono300"));
+	z_tx.setFont(res->getFont("global", "CascadiaMono300"));
 	z_tx.setCharacterSize(10);
 	z_tx.setFillColor(color);
 	//--------------------------

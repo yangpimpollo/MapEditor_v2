@@ -9,14 +9,14 @@ wl::WorkMap::WorkMap()
 
 	drawABox.setSize(sf::Vector2f(1218.f, 754.f));
 	drawABox.setPosition(sf::Vector2f(0.f, 0.f));
-	drawABox.setTexture(&res->getTexture("global_res", "map"));
+	drawABox.setTexture(&res->getTexture("global", "map"));
 
-	mouse_X.setFont(res->getFont("global_res", "CascadiaMono300"));
+	mouse_X.setFont(res->getFont("global", "CascadiaMono300"));
 	mouse_X.setCharacterSize(12);
 	mouse_X.setFillColor(sf::Color::Green);
 	mouse_X.setPosition(40.f, 95.f);
 
-	mouse_Y.setFont(res->getFont("global_res", "CascadiaMono300"));
+	mouse_Y.setFont(res->getFont("global", "CascadiaMono300"));
 	mouse_Y.setCharacterSize(12);
 	mouse_Y.setFillColor(sf::Color::Green);
 	mouse_Y.setPosition(40.f, 110.f);

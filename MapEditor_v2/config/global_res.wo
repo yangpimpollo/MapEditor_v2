@@ -1,13 +1,25 @@
-﻿<root>
-<Scene type='header' />
+﻿<!-- este es un comentario ...................................-->
+<!--                                                           -->
+<root name='global resources'>
+<Scene/>
 <Scene type='header' name='global resources' />
-<Scene type='header'/>
+<Scene/>
+<!-- este es un comentario ................................... -->
+<!-- este es un comentario ................................... -->
 
 <res type='font' id='CascadiaMono300' dat='Cascadia Mono PL Light 300.otf' />
 <res type='font' id='cwTeXQFangsong' dat='cwTeXQFangsong-Medium.ttf' />
 <res type='font' id='SourceHanSerifTC' dat='SourceHanSerifTC-ExtraLight.otf' />
 
-<!--// este es un comentario-->
+<font id='CascadiaMono300' dat='Cascadia Mono PL Light 300.otf' />
+<font id='CascadiaMono300' dat='Cascadia Mono PL Light 300.otf' />
+
+<tex id='icon' dat='icon.png' />
+<tex id='icfdon' dat='icodfdn.png' />
+<tex id='icon' dat='icon.png' />
+<tex id='icfdon' dat='icodfdn.png' />
+
+
 
 <res type='texture' id='icon' dat='icon.png' />
 <res type='texture' id='icon_b' dat='icon_b.png' />

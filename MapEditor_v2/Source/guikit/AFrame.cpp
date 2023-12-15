@@ -15,15 +15,15 @@ wl::AFrame::AFrame(sf::Vector2f position, sf::Vector2f size, std::string arg)
 	header.setFillColor(color2);
 	hrect = wl::ARect(position, sf::Vector2f(size.x - 22.f, 22.f));
 
-	title.setFont(res->getFont("global_res", "CascadiaMono300"));
+	title.setFont(res->getFont("global", "CascadiaMono300"));
 	title.setString(arg);
 	title.setCharacterSize(12);
 	title.setFillColor(sf::Color::Black);
 	title.setPosition(position.x + 5.f, position.y + 3.f);
 
-	close = wl::AButton(position + sf::Vector2f(size.x - 22.f, 0.f), sf::Vector2f(22.f, 22.f), &res->getTexture("global_res", "close1"), 2.f);
+	close = wl::AButton(position + sf::Vector2f(size.x - 22.f, 0.f), sf::Vector2f(22.f, 22.f), &res->getTexture("global", "close1"), 2.f);
 	close.setColors(color2, color1, color3, sf::Color::Black);
-	close.setTextures(res->getTexture("global_res", "close1"), res->getTexture("global_res", "close2"));
+	close.setTextures(res->getTexture("global", "close1"), res->getTexture("global", "close2"));
 
 	body.setPosition(position.x, position.y + 10.f);
 	body.setSize(size);

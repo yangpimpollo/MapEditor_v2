@@ -187,6 +187,8 @@
   <ItemGroup>
     <None Include="config\global_res.wo" />
     <None Include="config\scene1_res.wo" />
+    <None Include="rooms\global.room" />
+    <None Include="rooms\scene1.room" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -10,17 +10,17 @@ wl::Tester2::Tester2()
 	viewTest.setViewport(sf::FloatRect(0.f, 0.f, 1.f, 1.f));
 	//-----------
 
-	fps_txt.setFont(res->getFont("global_res", "CascadiaMono300"));
+	fps_txt.setFont(res->getFont("global", "CascadiaMono300"));
 	fps_txt.setCharacterSize(15);
 	fps_txt.setFillColor(sf::Color::Red);
 	fps_txt.setPosition(40.f, 40.f);
 
-	mouse_X.setFont(res->getFont("global_res", "CascadiaMono300"));
+	mouse_X.setFont(res->getFont("global", "CascadiaMono300"));
 	mouse_X.setCharacterSize(12);
 	mouse_X.setFillColor(sf::Color::Red);
 	mouse_X.setPosition(40.f, 65.f);
 
-	mouse_Y.setFont(res->getFont("global_res", "CascadiaMono300"));
+	mouse_Y.setFont(res->getFont("global", "CascadiaMono300"));
 	mouse_Y.setCharacterSize(12);
 	mouse_Y.setFillColor(sf::Color::Red);
 	mouse_Y.setPosition(40.f, 80.f);
@@ -30,7 +30,7 @@ wl::Tester2::Tester2()
 	sp1 = wl::ASpriteShape(
 		sf::Vector2f(200.f, 200.f), 
 		sf::Vector2f(100.f, 100.f), 
-		&res->getTexture("scene1_res", "pixel5")
+		&res->getTexture("scene1", "pixel5")
 	);
 
 }

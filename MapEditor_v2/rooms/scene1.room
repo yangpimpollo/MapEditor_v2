@@ -1,0 +1,18 @@
+
+<!---->
+<!--  ............... this is a comment ............... -->
+<!---->
+
+<room name='scene1'>
+
+	<texture id='pixel1' dat='pixel1.jpg' />
+	<texture id='pixel2' dat='pixel2.jpeg' />
+	<texture id='pixel3' dat='pixel3.jpg' />
+	<texture id='pixel4' dat='pixel4.jpg' />
+	<texture id='pixel5' dat='pixel5.jpg' />
+	
+	<sound id='momm' dat='momm.wav' />
+	<sound id='ff' dat='ff.wav' />
+	<sound id='start' dat='start.ogg' />
+
+</room>

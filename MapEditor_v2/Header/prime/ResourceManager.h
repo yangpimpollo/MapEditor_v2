@@ -13,8 +13,6 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 
-#include "prime/Window.h"
-
 #define res wl::ResourceManager::getInstance()
 
 namespace wl
@@ -22,53 +20,61 @@ namespace wl
 	class ResourceManager
 	{
 	public:
+		enum Lang { EN, ZH, SP };
+		enum Type { None, Header, Font, Texture, Sound, String, Object };
+
 		static wl::ResourceManager* getInstance();
-		void loadResources(std::string name);
-		void clearResources(std::string name);
+		void loadRoom(std::string name);
+		void saveRoom(std::string name);
+		void closeRoom(std::string name);
 
-		inline sf::Font& getFont(std::string name, std::string id) {
-			try { return font.at(name).at(id); }
-			catch (const std::out_of_range& e) { }
-		};
-		inline sf::Texture& getTexture(std::string name, std::string id) {
-			try { return texture.at(name).at(id); }
-			catch (const std::out_of_range& e) { std::runtime_error("Font not found");}
-		};
-		inline sf::SoundBuffer& getSound(std::string name, std::string id) { return sound.at(name).at(id); };
-
-		inline std::wstring& getENstr(std::string name, std::string id) { return en_pack.at(name).at(id); };
-		inline std::wstring& getZHstr(std::string name, std::string id) { return zh_pack.at(name).at(id); };
-		inline std::wstring& getSPstr(std::string name, std::string id) { return sp_pack.at(name).at(id); };
+		void importRes(std::string name, std::string datatext);
+		void deleteRes(std::string name, Type type, std::string id);
+		
+		inline sf::Font& getFont(std::string name, std::string id) { return font.at(name).at(id).second; };
+		inline sf::Texture& getTexture(std::string name, std::string id) { return texture.at(name).at(id).second; };
+		inline sf::SoundBuffer& getSound(std::string name, std::string id) { return sound.at(name).at(id).second; };
+		inline std::wstring& getStr(Lang lang, std::string name, std::string id);
 
 	private:
 		ResourceManager();
 		~ResourceManager();
-		void readResources(std::string name);
-		void indexResources(std::string name);
-		
+		static wl::ResourceManager* instance_;
+		//void addResource(std::string name, Type type, std::string datatext);
+		//void loadResource(std::string name, Type type, std::string datatext);
+
+		//------------------ tools ----------------------
+
+		Type LabelType(std::string arg);
 		std::string findLabel(std::string name, std::string arg);
 		std::wstring to_wstring(std::string str);
 
-		std::vector<std::string> all_files;
+		//------------------ arrays ---------------------
 
 		std::map<std::string, std::vector<std::string>> str_header;
-		std::map<std::string, std::vector<std::string>> str_font;
-		std::map<std::string, std::vector<std::string>> str_texture;
-		std::map<std::string, std::vector<std::string>> str_sound;
 		std::map<std::string, std::vector<std::string>> str_string;
 
-		std::map <std::string, std::map<std::string, sf::Font>> font;
-		std::map <std::string, std::map<std::string, sf::Texture>> texture;
-		std::map <std::string, std::map<std::string, sf::SoundBuffer>> sound;
+		std::map < std::string, std::map < std::string, std::pair <std::string, sf::Font>>> font;
+		std::map <std::string, std::map<std::string, std::pair <std::string, sf::Texture>>> texture;
+		std::map <std::string, std::map<std::string, std::pair <std::string, sf::SoundBuffer>>> sound;
 
 		std::map <std::string, std::map<std::string, std::wstring>> en_pack;
 		std::map <std::string, std::map<std::string, std::wstring>> zh_pack;
 		std::map <std::string, std::map<std::string, std::wstring>> sp_pack;
 
-		static wl::ResourceManager* instance_;
+		std::vector<std::string> all_rooms;
 
 	};
 
+	inline std::wstring& wl::ResourceManager::getStr(Lang lang, std::string name, std::string id) 
+	{
+		switch (lang)
+		{
+		case Lang::EN: return en_pack.at(name).at(id); break;
+		case Lang::ZH: return zh_pack.at(name).at(id); break;
+		case Lang::SP: return sp_pack.at(name).at(id); break;
+		}
+	}
 
 
 } // namespace wl

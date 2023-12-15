@@ -52,6 +52,9 @@
     <Filter Include="Source Files\phykit">
       <UniqueIdentifier>{91d3b75f-f7b4-4862-973f-b399f19d6444}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\rooms">
+      <UniqueIdentifier>{ee5487eb-cfd0-48b2-9474-feb82bb10fd4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -177,6 +180,12 @@
     </None>
     <None Include="config\global_res.wo">
       <Filter>Resource Files\config</Filter>
+    </None>
+    <None Include="rooms\global.room">
+      <Filter>Resource Files\rooms</Filter>
+    </None>
+    <None Include="rooms\scene1.room">
+      <Filter>Resource Files\rooms</Filter>
     </None>
   </ItemGroup>
 </Project>
