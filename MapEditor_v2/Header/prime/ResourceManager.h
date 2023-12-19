@@ -35,6 +35,7 @@ namespace wl
 		inline sf::Texture& getTexture(std::string name, std::string id) { return texture.at(name).at(id).second; };
 		inline sf::SoundBuffer& getSound(std::string name, std::string id) { return sound.at(name).at(id).second; };
 		inline std::wstring& getStr(Lang lang, std::string name, std::string id);
+		inline std::vector<std::string>& getObjects(std::string name) { return str_object.at(name); };
 
 	private:
 		ResourceManager();
@@ -53,6 +54,7 @@ namespace wl
 
 		std::map<std::string, std::vector<std::string>> str_header;
 		std::map<std::string, std::vector<std::string>> str_string;
+		std::map<std::string, std::vector<std::string>> str_object;
 
 		std::map < std::string, std::map < std::string, std::pair <std::string, sf::Font>>> font;
 		std::map <std::string, std::map<std::string, std::pair <std::string, sf::Texture>>> texture;

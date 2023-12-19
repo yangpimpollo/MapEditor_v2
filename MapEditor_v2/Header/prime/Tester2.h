@@ -7,6 +7,7 @@
 #include <SFML/Graphics.hpp>
 
 #include "game_core.h"
+#include "prime/ObjectManager.h"
 #include "prime/ResourceManager.h"
 #include "prime/Window.h"
 

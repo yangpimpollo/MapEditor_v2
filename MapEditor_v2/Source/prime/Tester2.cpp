@@ -27,11 +27,13 @@ wl::Tester2::Tester2()
 
 	//------------------------------------------------------------------//
 
-	sp1 = wl::ASpriteShape(
-		sf::Vector2f(200.f, 200.f), 
-		sf::Vector2f(100.f, 100.f), 
-		&res->getTexture("scene1", "pixel5")
-	);
+	////////////////sp1 = wl::ASpriteShape(
+	////////////////	sf::Vector2f(200.f, 200.f), 
+	////////////////	sf::Vector2f(100.f, 100.f), 
+	////////////////	&res->getTexture("scene1", "pixel5")
+	////////////////);
+
+	obj_mng->loadRoomObjects("scene1");
 
 }
 
@@ -57,7 +59,8 @@ void wl::Tester2::update(sf::Time deltaTime)
 	this->mouse_Y.setString("screen y: " + y);
 
 	//------------------------------------------------------------------//
-	sp1.update(deltaTime);
+	////////////sp1.update(deltaTime);
+	obj_mng->update(deltaTime);
 }
 
 void wl::Tester2::processEvents(sf::Event event)
@@ -68,7 +71,8 @@ void wl::Tester2::processEvents(sf::Event event)
 		viewTest.setCenter(event.size.width / 2, event.size.height / 2);
 	}
 
-	sp1.processEvents(event);
+	////////sp1.processEvents(event);
+	obj_mng->processEvents(event);
 }
 
 void wl::Tester2::draw(sf::RenderTarget& target, sf::RenderStates states) const
@@ -80,7 +84,8 @@ void wl::Tester2::draw(sf::RenderTarget& target, sf::RenderStates states) const
 
 	//------------------------------------------------------------------//
 
-	target.draw(this->sp1);
+	//////////target.draw(this->sp1);
+	target.draw(*obj_mng);
 }
 
 void wl::Tester2::actionPerformed(AGuiObject& obj)

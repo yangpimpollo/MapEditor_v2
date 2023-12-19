@@ -48,6 +48,7 @@ wl::AEditTool::AEditTool(sf::Vector2f position, sf::Vector2f size)
 
 void wl::AEditTool::update(sf::Time deltaTime)
 {
+	//std::cout << "update tool" << std::endl;
 	edgeShape.setSize(size);
 	edgeShape.setPosition(position); 
 
@@ -80,6 +81,7 @@ void wl::AEditTool::update(sf::Time deltaTime)
 
 void wl::AEditTool::processEvents(sf::Event event)
 {
+	//std::cout << "prossevent tool" << std::endl;
 	if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
 		if (inZQuadrant()) {
 			isDragZQuad = true;
@@ -140,10 +142,18 @@ void wl::AEditTool::processEvents(sf::Event event)
 	}else {
 		zShape.setFillColor(color);
 	}
+
+	if (activeEdit) {
+		if (event.type == sf::Event::KeyReleased && event.key.code == sf::Keyboard::Key::D) {
+			isDelete = true;
+			std::cout << "delete: " << objectId << std::endl;
+		}			
+	}
 }
 
 void wl::AEditTool::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
+	//std::cout << "draw tool" << std::endl;
 	if (activeEdit) { 
 		target.draw(edgeShape); 
 		target.draw(zShape);

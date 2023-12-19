@@ -11,7 +11,7 @@ namespace wl
 	public:
 		ASpriteShape();
 		~ASpriteShape();
-		ASpriteShape(sf::Vector2f position, sf::Vector2f size, sf::Texture* tex);
+		ASpriteShape(sf::Vector2f position, sf::Vector2f size, sf::Texture* tex, float z,std::string id="");
 
 		void update(sf::Time deltaTime);
 		void processEvents(sf::Event event);

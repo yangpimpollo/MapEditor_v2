@@ -152,6 +152,7 @@
     <ClCompile Include="Source\phykit\AEditTool.cpp" />
     <ClCompile Include="Source\phykit\ASpriteShape.cpp" />
     <ClCompile Include="Source\pieces\workmap\WorkMap.cpp" />
+    <ClCompile Include="Source\prime\ObjectManager.cpp" />
     <ClCompile Include="Source\prime\ResourceManager.cpp" />
     <ClCompile Include="Source\prime\SceneManager.cpp" />
     <ClCompile Include="Source\prime\Tester1.cpp" />
@@ -175,6 +176,7 @@
     <ClInclude Include="Header\phykit\ASpriteShape.h" />
     <ClInclude Include="Header\pieces\workmap\WorkMap.h" />
     <ClInclude Include="Header\prime\math.h" />
+    <ClInclude Include="Header\prime\ObjectManager.h" />
     <ClInclude Include="Header\prime\ResourceManager.h" />
     <ClInclude Include="Header\prime\Scene.h" />
     <ClInclude Include="Header\prime\SceneManager.h" />

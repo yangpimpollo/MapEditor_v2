@@ -50,6 +50,7 @@ void wl::ResourceManager::closeRoom(std::string name)
 
 		str_header.erase(name);
 		str_string.erase(name);
+		str_object.erase(name);
 
 		font.erase(name);
 		texture.erase(name);
@@ -123,7 +124,13 @@ void wl::ResourceManager::importRes(std::string name, std::string datatext)
 		}
 	}break;
 
-	case Type::Object: {}  break;
+	case Type::Object: {
+		if (str_object.contains(name)) { str_object.at(name).push_back(datatext); }
+		else { str_object[name] = std::vector<std::string>{ datatext }; }
+
+		std::cout << "   -" << _id << std::endl;
+	}  break;
+
 	default: {} break;
 	}
 

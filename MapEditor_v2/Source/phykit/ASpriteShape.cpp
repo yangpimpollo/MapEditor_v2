@@ -8,10 +8,12 @@ wl::ASpriteShape::~ASpriteShape()
 {
 }
 
-wl::ASpriteShape::ASpriteShape(sf::Vector2f position, sf::Vector2f size, sf::Texture* tex)
+wl::ASpriteShape::ASpriteShape(sf::Vector2f position, sf::Vector2f size, sf::Texture* tex, float z, std::string id)
 	: wl::AEditTool(position, size), tex(*tex)
 {
-	generateID();
+	if (id.empty()) generateID(); else objectId = id;
+	setZbuffer(z);
+
 	rectShape.setPosition(position);
 	rectShape.setSize(size);
 	rectShape.setTexture(tex);
